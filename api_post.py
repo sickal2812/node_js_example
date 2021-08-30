@@ -6,14 +6,14 @@ prev_dist=0
 curr_dist=0
 
 jsondata = {
-  "gps_info": [37.702876203981766,126.89838200862127]
+  "gps_info": [37.59125708084185 , 127.02036963828073]
   # 실제 gps 값을 여기에 넣으면 된다.
   # gps 값은 계속 갱신되어야 함
 }
 
 def update_gps(jsondata):
-    jsondata['gps_info'][1] += 0.000004
-    #jsondata['gps_info'][0] += 0.000001
+    #jsondata['gps_info'][1] -= 0.000004
+    jsondata['gps_info'][0] -= 0.000004
     # 이 부분은 더미gps데이터가 움직이는것을 표현하기 위해서 만들어짐
 
 def api_call(jsondata):
@@ -43,10 +43,9 @@ def api_call(jsondata):
 prev_dist=0
 curr_dist=0
 
+print("blue? answer 'blue' or 'red'")
 a = input()
-
 if a == 'blue':
-  print("you can go")
   api_call(jsondata)
 
 
